@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class SuitableForAttackUnitsFinderImpl implements SuitableForAttackUnitsFinder {
 
-    // сложность: O(n * m). (n - количество строк, m - количество юнитов в строке)
+    
     @Override
     public List<Unit> getSuitableUnits(List<List<Unit>> unitsByRow, boolean isLeftArmyTarget) {
         Map<Integer, List<Unit>> suitableUnitsMap = new HashMap<>();
@@ -29,7 +29,7 @@ public class SuitableForAttackUnitsFinderImpl implements SuitableForAttackUnitsF
         return allSuitableUnits;
     }
 
-    // Поиск подходящих юнитов в строке
+    
     private List<Unit> findSuitableUnitsInRow(List<Unit> row, boolean isLeftArmyTarget) {
         List<Unit> suitableUnits = new ArrayList<>();
         for (int index = 0; index < row.size(); index++) {
@@ -42,12 +42,12 @@ public class SuitableForAttackUnitsFinderImpl implements SuitableForAttackUnitsF
         return suitableUnits;
     }
 
-    // Проверка, является ли юнит самым правым в ряду
+    
     private boolean isRightmostUnit(List<Unit> row, int unitIndex) {
         return unitIndex == row.size() - 1 || row.subList(unitIndex + 1, row.size()).stream().allMatch(Objects::isNull);
     }
 
-    // Проверка, является ли юнит самым левым в ряду
+    
     private boolean isLeftmostUnit(List<Unit> row, int unitIndex) {
         return unitIndex == 0 || row.subList(0, unitIndex).stream().allMatch(Objects::isNull);
     }
