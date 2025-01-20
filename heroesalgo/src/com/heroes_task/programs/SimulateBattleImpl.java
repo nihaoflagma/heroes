@@ -12,7 +12,7 @@ import java.util.Set;
 public class SimulateBattleImpl implements SimulateBattle {
     private PrintBattleLog printBattleLog;
 
-    //  Сложность: O(n * m). (n - количество юнитов в армии игрока, m - количество юнитов в армии компьютера)
+    
     @Override
     public void simulate(Army playerArmy, Army computerArmy) throws InterruptedException {
         Set<Unit> playerUnits = new HashSet<>(playerArmy.getUnits());
@@ -29,7 +29,7 @@ public class SimulateBattleImpl implements SimulateBattle {
         while (iterator.hasNext()) {
             Unit attackingUnit = iterator.next();
             if (!attackingUnit.isAlive()) {
-                iterator.remove(); // Чистим от мертвецов
+                iterator.remove(); 
                 continue;
             }
 
